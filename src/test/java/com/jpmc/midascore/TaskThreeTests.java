@@ -10,7 +10,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 @DirtiesContext
-@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
+@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" })
 public class TaskThreeTests {
     static final Logger logger = LoggerFactory.getLogger(TaskThreeTests.class);
 
@@ -32,15 +32,15 @@ public class TaskThreeTests {
         }
         Thread.sleep(2000);
 
-
         logger.info("----------------------------------------------------------");
         logger.info("----------------------------------------------------------");
         logger.info("----------------------------------------------------------");
         logger.info("use your debugger to find out what waldorf's balance is after all transactions are processed");
         logger.info("kill this test once you find the answer");
-        while (true) {
-            Thread.sleep(20000);
-            logger.info("...");
-        }
+        Thread.sleep(3000);
+        // while (true) {
+        // Thread.sleep(20000);
+        // logger.info("...");
+        // }
     }
 }

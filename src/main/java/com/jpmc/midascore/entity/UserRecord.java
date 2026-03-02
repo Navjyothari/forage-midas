@@ -2,7 +2,8 @@ package com.jpmc.midascore.entity;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "User")
+@Table(name = "users")
 public class UserRecord {
 
     @Id
