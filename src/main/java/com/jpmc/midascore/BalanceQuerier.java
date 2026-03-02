@@ -1,7 +1,6 @@
 package com.jpmc.midascore;
 
 import com.jpmc.midascore.foundation.Balance;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -11,15 +10,12 @@ public class BalanceQuerier {
 
     private final RestTemplate restTemplate;
 
-    @Value("${server.port}")
-    private int serverPort;
-
     public BalanceQuerier(RestTemplateBuilder builder) {
         this.restTemplate = builder.build();
     }
 
     public Balance query(Long userId) {
-        String url = "http://localhost:" + serverPort + "/balance?userId=" + userId;
+        String url = "http://localhost:33400/balance?userId=" + userId;
         return restTemplate.getForObject(url, Balance.class);
     }
 }
